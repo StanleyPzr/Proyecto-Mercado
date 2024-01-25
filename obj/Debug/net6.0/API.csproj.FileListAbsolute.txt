@@ -70,3 +70,4 @@ C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Newto
 C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\Api\obj\Debug\net6.0\API.sourcelink.json

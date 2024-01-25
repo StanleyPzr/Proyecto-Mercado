@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
+    //Evitar validaciones acá
     public class Stock
     {
         public int Id {get; set;}

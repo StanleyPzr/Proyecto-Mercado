@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace API.Dtos.Comment
 {
+    //Las validaciones van directamente al DTO antes que al modelo, evitar validar Modelos
     public class CommentDTO
     {
         public int Id {get; set;}

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
+    //Evitar validaciones acá
     public class Comment
     {
         public int Id {get; set;}
