@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
+    [Table("Stocks")]
     //Evitar validaciones acá
     public class Stock
     {
+        
         public int Id {get; set;}
         public string Symbol {get; set;} = string.Empty;
         public string NombreCompania{get; set;} = string.Empty;
@@ -20,5 +22,6 @@ namespace API.Models
         public long MarketCap {get; set;}
 
         public List<Comment> Comentarios {get; set;} = new List<Comment>();
+        public List<Portafolio> Portafolios { get; set; } = new List<Portafolio>();
     }
 }

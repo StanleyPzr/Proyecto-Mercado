@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class Identity : Migration
+    public partial class Portafolio : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,6 +46,24 @@ namespace API.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Stocks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Symbol = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NombreCompania = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Compra = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    UltimaVenta = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    Industria = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MarketCap = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Stocks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -154,6 +172,61 @@ namespace API.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Comentarios",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Contenido = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    CreadoEn = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    StockId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Comentarios", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Comentarios_Stocks_StockId",
+                        column: x => x.StockId,
+                        principalTable: "Stocks",
+                        principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Portafolios",
+                columns: table => new
+                {
+                    IdUsuario = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    IdStock = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Portafolios", x => new { x.IdUsuario, x.IdStock });
+                    table.ForeignKey(
+                        name: "FK_Portafolios_AspNetUsers_IdUsuario",
+                        column: x => x.IdUsuario,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Portafolios_Stocks_IdStock",
+                        column: x => x.IdStock,
+                        principalTable: "Stocks",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "6b69f5f3-eabd-4507-97af-9bee3869fa57", "0f6b5240-82a4-44c3-b31c-bce7d6b086ad", "User", "USER" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[] { "e8fe27eb-8321-4f51-8670-7e15e54f22bf", "45fa01db-77fd-467a-8c9d-47d52e4b6982", "Admin", "ADMIN" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -192,6 +265,16 @@ namespace API.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Comentarios_StockId",
+                table: "Comentarios",
+                column: "StockId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Portafolios_IdStock",
+                table: "Portafolios",
+                column: "IdStock");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -212,10 +295,19 @@ namespace API.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Comentarios");
+
+            migrationBuilder.DropTable(
+                name: "Portafolios");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "Stocks");
         }
     }
 }
