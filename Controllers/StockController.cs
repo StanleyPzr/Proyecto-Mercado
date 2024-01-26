@@ -9,6 +9,7 @@ using API.Mappers;
 using API.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -24,7 +25,8 @@ namespace API.Controllers
             _stockRepository = stockRepository;          
         }   
 
-        [HttpGet]        
+        [HttpGet]
+        [Authorize]        
         public async Task<IActionResult> GetAll([FromQuery] QueryObject query)
         {
             if(!ModelState.IsValid){

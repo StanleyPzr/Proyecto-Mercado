@@ -71,3 +71,9 @@ C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Micro
 C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\Api\obj\Debug\net6.0\API.sourcelink.json
+C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\Usuario(a)\Desktop\API_Notes\Proyectos\API-3\API\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
